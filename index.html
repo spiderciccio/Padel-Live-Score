@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0b132b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Padel Score" />
+  <title>Padel Live Score</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div id="status-dot" class="status-dot"></div>
+      Padel Score
+    </div>
+    <div class="header-actions">
+      <button id="btn-sound" class="pill" aria-label="Suoni attivi">🔊</button>
+      <button id="btn-mode" class="pill gold">Punto de Oro</button>
+      <button id="btn-reset" class="pill">Reset</button>
+    </div>
+  </header>
+
+  <div id="band-banner">
+    <span>Attiva il ponte audio per controllare i punti dalla Honor Band</span>
+    <button id="btn-connect">Attiva Band</button>
+  </div>
+
+  <div id="toast">Punto Squadra A</div>
+
+  <main>
+    <!-- Squadra A -->
+    <div id="card-a" class="team-card team-a">
+      <div class="team-header">
+        <span class="team-name">NOI</span>
+        <div class="sets-badge">SET <span id="sets-a">0</span></div>
+      </div>
+      <div id="points-a" class="points-display">0</div>
+      <div class="games-box">
+        <div class="games-label">Games</div>
+        <div id="games-a" class="games-value">0</div>
+      </div>
+    </div>
+
+    <!-- Squadra B -->
+    <div id="card-b" class="team-card team-b">
+      <div class="team-header">
+        <span class="team-name">LORO</span>
+        <div class="sets-badge">SET <span id="sets-b">0</span></div>
+      </div>
+      <div id="points-b" class="points-display">0</div>
+      <div class="games-box">
+        <div class="games-label">Games</div>
+        <div id="games-b" class="games-value">0</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="set-history" id="set-history">
+      <span>Set precedenti: -</span>
+    </div>
+    <button id="btn-undo" class="btn-undo" disabled>↩ Annulla</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
