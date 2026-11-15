@@ -2,7 +2,7 @@
 // Strategia stale-while-revalidate: risponde subito dalla cache e aggiorna in
 // background, quindi le modifiche arrivano al caricamento successivo.
 // Cambiare CACHE_VERSION per forzare la pulizia delle cache vecchie.
-const CACHE_VERSION = 'padel-score-v2';
+const CACHE_VERSION = 'padel-score-v3';
 const APP_SHELL = [
   './',
   './index.html',

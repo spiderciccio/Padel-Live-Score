@@ -116,6 +116,7 @@ main {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   padding: 12px;
+  min-height: 0;
 }
 
 .team-card {
@@ -272,4 +273,57 @@ footer {
 #toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Orizzontale: schermo basso, compattiamo barre e card perché tutto stia in vista */
+@media (orientation: landscape) and (max-height: 500px) {
+  header {
+    padding: 6px 16px;
+  }
+
+  #band-banner {
+    padding: 6px 16px;
+  }
+
+  #btn-connect {
+    padding: 6px 12px;
+  }
+
+  main {
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .team-card {
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .points-display {
+    font-size: clamp(3rem, 28vh, 7.5rem);
+  }
+
+  .games-box {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    padding: 4px 10px;
+  }
+
+  .games-value {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    padding: 6px 16px;
+  }
+
+  .btn-undo {
+    padding: 6px 14px;
+  }
+
+  #toast {
+    top: 12px;
+  }
 }
