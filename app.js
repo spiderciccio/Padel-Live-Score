@@ -96,7 +96,7 @@ function scorePoint(team) {
   render();
   const gameWon = state.gamesA + state.gamesB + state.setsA + state.setsB !== gamesBefore;
   playSound(gameWon ? (isA ? 'gameA' : 'gameB') : (isA ? 'pointA' : 'pointB'));
-  showToast(isA ? '🎾 Punto NOI' : '🎾 Punto LORO');
+  showToast(isA ? '🎾 Punto Team A' : '🎾 Punto Team B');
 }
 
 function handleStandardPoint(isA) {
@@ -166,7 +166,7 @@ function winSet(isA) {
   else state.setsB++;
   state.gamesA = 0;
   state.gamesB = 0;
-  showToast(isA ? '🏆 SET NOI!' : '🏆 SET LORO!');
+  showToast(isA ? '🏆 SET TEAM A!' : '🏆 SET TEAM B!');
 }
 
 function resetMatch() {
@@ -257,7 +257,7 @@ function showToast(msg) {
 }
 
 // --- SUONI (Web Audio API, nessun file) ---
-// NOI: due note che salgono (sine). LORO: due note che scendono (triangle).
+// Team A: due note che salgono (sine). Team B: due note che scendono (triangle).
 // Game vinto: arpeggio di tre note. Annulla: nota bassa singola.
 const SOUNDS = {
   pointA: { wave: 'sine', notes: [660, 880] },
@@ -382,7 +382,7 @@ function updateBandMetadata(pA, pB) {
   if (!bandActive || !('mediaSession' in navigator)) return;
   navigator.mediaSession.metadata = new MediaMetadata({
     title: `${pA}-${pB}`,
-    artist: `Game: ${state.gamesA}-${state.gamesB} | Set: ${state.setsA}-${state.setsB}`,
+    artist: `Game: ${state.gamesA}-${state.gamesB} | Set: ${state.setsA}-${state.setsB} `,
     album: 'Padel Live Score'
   });
 }

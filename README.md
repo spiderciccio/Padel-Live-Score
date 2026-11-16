@@ -14,12 +14,12 @@ Segnapunti per il padel da usare in campo. Segni i punti toccando lo schermo opp
 
   | Tasto sul watch | Azione |
   |---|---|
-  | Traccia successiva ⏭ | Punto NOI |
-  | Traccia precedente ⏮ | Punto LORO |
+  | Traccia successiva ⏭ | Punto Team A |
+  | Traccia precedente ⏮ | Punto Team B |
   | Play / Pausa ⏯ | Annulla l'ultimo punto |
 
   Il punteggio compare sul watch al posto del titolo del brano.
-- **Suoni diversi** per punto NOI, punto LORO, game vinto e annulla: capisci cosa è stato segnato senza guardare. Si spengono con 🔊/🔇.
+- **Suoni diversi** per punto Team A, punto Team B, game vinto e annulla: capisci cosa è stato segnato senza guardare. Si spengono con 🔊/🔇.
 - **Annulla** fino a 50 azioni, reset compreso.
 - **Partita salvata** sul telefono: resta anche se ricarichi o chiudi l'app.
 - **Funziona offline** dopo la prima apertura.
@@ -30,7 +30,7 @@ Segnapunti per il padel da usare in campo. Segni i punti toccando lo schermo opp
 
 1. Apri l'app con **Chrome su Android** e installala (menu ⋮ → *Installa app*).
 2. Premi **Attiva Band** prima di iniziare. Serve un tocco sullo schermo perché il browser permetta l'audio.
-3. Nella tendina di Android compare il player "NOI 0 - 0 LORO": da quel momento i tasti musica del watch controllano il punteggio.
+3. Nella tendina di Android compare il player "Team A 0 - 0 Team B": da quel momento i tasti musica del watch controllano il punteggio.
 
 ### Come funziona il controllo dal watch
 
@@ -43,7 +43,7 @@ L'audio deve durare almeno 5 secondi: sotto questa soglia Chrome per Android non
 
 ### Se il watch non risponde
 
-- Controlla che nella tendina di Android ci sia il player "NOI … LORO". Se non c'è, premi di nuovo **Attiva Band**.
+- Controlla che nella tendina di Android ci sia il player "Team A … Team B". Se non c'è, premi di nuovo **Attiva Band**.
 - Nell'app del watch (per la Honor Band 5: Huawei Health) abilita il controllo della musica e dai all'app l'**accesso alle notifiche** di Android.
 - Usa Chrome: con altri browser funziona peggio.
 
@@ -116,8 +116,8 @@ It's a PWA: it installs on your phone like an app, works offline and has no depe
 
   | Watch button | Action |
   |---|---|
-  | Next track ⏭ | Point to NOI (us) |
-  | Previous track ⏮ | Point to LORO (them) |
+  | Next track ⏭ | Point to Team A |
+  | Previous track ⏮ | Point to Team B |
   | Play / Pause ⏯ | Undo last point |
 
   The score shows on the watch as the track title.
@@ -132,7 +132,7 @@ It's a PWA: it installs on your phone like an app, works offline and has no depe
 
 1. Open the app in **Chrome on Android** and install it (menu ⋮ → *Install app*).
 2. Tap **Attiva Band** (enable band) before starting. The browser only allows audio after a tap on the screen.
-3. An Android media player "NOI 0 - 0 LORO" appears in the notification shade: from now on the watch's music buttons control the score.
+3. An Android media player "Team A 0 - 0 Team B" appears in the notification shade: from now on the watch's music buttons control the score.
 
 ### How watch control works
 
@@ -145,7 +145,7 @@ The audio must be at least 5 seconds long: below that, Chrome for Android doesn'
 
 ### If the watch doesn't respond
 
-- Check that the "NOI … LORO" player is in the Android notification shade. If it isn't, tap **Attiva Band** again.
+- Check that the "Team A … Team B" player is in the Android notification shade. If it isn't, tap **Attiva Band** again.
 - In the watch's companion app (for the Honor Band 5: Huawei Health) enable music control and grant the app Android **notification access**.
 - Use Chrome: other browsers work less reliably.
 
