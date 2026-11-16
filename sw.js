@@ -27,7 +27,10 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
+  const type = event.data && event.data.type;
+  if (type === 'SKIP_WAITING') self.skipWaiting();
+  // La pagina chiede la versione per mostrarla nel footer
+  if (type === 'GET_VERSION' && event.ports[0]) event.ports[0].postMessage(CACHE_VERSION);
 });
 
 self.addEventListener('activate', (event) => {

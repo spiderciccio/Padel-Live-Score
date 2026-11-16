@@ -41,7 +41,8 @@ const dom = {
   statusDot: document.getElementById('status-dot'),
   toast: document.getElementById('toast'),
   updateBanner: document.getElementById('update-banner'),
-  btnUpdate: document.getElementById('btn-update')
+  btnUpdate: document.getElementById('btn-update'),
+  appVersion: document.getElementById('app-version')
 };
 
 // --- EVENT LISTENERS ---
@@ -395,6 +396,14 @@ function showUpdateBanner(worker) {
   dom.updateBanner.classList.add('show');
 }
 
+// Chiede al service worker attivo la sua CACHE_VERSION e la mostra nel footer
+function showAppVersion(worker) {
+  if (!worker) return;
+  const channel = new MessageChannel();
+  channel.port1.onmessage = (event) => { dom.appVersion.textContent = event.data; };
+  worker.postMessage({ type: 'GET_VERSION' }, [channel.port2]);
+}
+
 function applyUpdate() {
   if (!waitingWorker) return;
   dom.btnUpdate.disabled = true;
@@ -412,6 +421,8 @@ if ('serviceWorker' in navigator) {
   });
 
   window.addEventListener('load', () => {
+    navigator.serviceWorker.ready.then((reg) => showAppVersion(reg.active));
+
     navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then((reg) => {
       // Un aggiornamento era già scaricato e in attesa (es. app riaperta)
       if (reg.waiting && navigator.serviceWorker.controller) showUpdateBanner(reg.waiting);
