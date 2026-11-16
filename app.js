@@ -308,7 +308,7 @@ function toggleSound() {
   if (soundOn) playSound('pointA');
 }
 
-// --- INTEGRAZIONE HONOR BAND 5 (MEDIA SESSION API) ---
+// --- CONTROLLO DA DISPOSITIVI BLUETOOTH (MEDIA SESSION API) ---
 function createSilentWavBlobUrl() {
   // Chrome Android crea la sessione media (notifica + controlli Bluetooth/smartwatch)
   // solo per media di durata >= 5 secondi: usiamo 30s di silenzio.
@@ -372,7 +372,7 @@ async function enableBandControl() {
       navigator.wakeLock.request('screen').catch(() => {});
     }
 
-    showToast('⌚ Honor Band collegata!');
+    showToast('🎧 Controllo media attivo!');
   } catch (err) {
     alert('Impossibile attivare la sessione media: ' + err.message);
   }

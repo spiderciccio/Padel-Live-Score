@@ -3,7 +3,7 @@
 // background, quindi le modifiche arrivano al caricamento successivo.
 // Cambiare CACHE_VERSION ad ogni rilascio: il browser rileva il nuovo sw.js,
 // lo installa e l'app mostra il banner "Aggiorna" (vedi app.js).
-const CACHE_VERSION = 'padel-score-2027-11-16-v1';
+const CACHE_VERSION = 'padel-score-2027-11-16-v1.0';
 const APP_SHELL = [
   './',
   './index.html',

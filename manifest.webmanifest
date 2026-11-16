@@ -1,7 +1,7 @@
 {
   "name": "Padel Live Score",
   "short_name": "Padel Score",
-  "description": "Segnapunti padel con controllo dalla Honor Band",
+  "description": "Segnapunti padel controllabile da dispositivi Bluetooth",
   "lang": "it",
   "start_url": "./",
   "scope": "./",
