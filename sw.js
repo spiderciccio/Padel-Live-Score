@@ -1,8 +1,9 @@
 // Service worker: app shell in cache per funzionare offline (campo senza rete).
 // Strategia stale-while-revalidate: risponde subito dalla cache e aggiorna in
 // background, quindi le modifiche arrivano al caricamento successivo.
-// Cambiare CACHE_VERSION per forzare la pulizia delle cache vecchie.
-const CACHE_VERSION = 'padel-score-v3';
+// Cambiare CACHE_VERSION ad ogni rilascio: il browser rileva il nuovo sw.js,
+// lo installa e l'app mostra il banner "Aggiorna" (vedi app.js).
+const CACHE_VERSION = 'padel-score-2027-11-16';
 const APP_SHELL = [
   './',
   './index.html',
@@ -16,9 +17,17 @@ const APP_SHELL = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_VERSION).then((cache) => cache.addAll(APP_SHELL))
+    caches.open(CACHE_VERSION).then((cache) =>
+      // cache: 'reload' bypassa la cache HTTP per scaricare davvero i file nuovi
+      cache.addAll(APP_SHELL.map((url) => new Request(url, { cache: 'reload' })))
+    )
   );
-  self.skipWaiting();
+  // Niente skipWaiting automatico: il nuovo SW resta in attesa finché
+  // l'utente non conferma l'aggiornamento dal banner.
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {

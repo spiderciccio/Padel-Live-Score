@@ -39,7 +39,9 @@ const dom = {
   setHistory: document.getElementById('set-history'),
   bandBanner: document.getElementById('band-banner'),
   statusDot: document.getElementById('status-dot'),
-  toast: document.getElementById('toast')
+  toast: document.getElementById('toast'),
+  updateBanner: document.getElementById('update-banner'),
+  btnUpdate: document.getElementById('btn-update')
 };
 
 // --- EVENT LISTENERS ---
@@ -50,6 +52,7 @@ dom.btnConnect.addEventListener('click', enableBandControl);
 dom.btnUndo.addEventListener('click', undoPoint);
 dom.cardA.addEventListener('click', () => scorePoint('A'));
 dom.cardB.addEventListener('click', () => scorePoint('B'));
+dom.btnUpdate.addEventListener('click', applyUpdate);
 
 // --- LOGICA PUNTEGGIO PADEL ---
 function saveSnapshot() {
@@ -384,9 +387,52 @@ function updateBandMetadata(pA, pB) {
 }
 
 // --- PWA ---
+// --- SERVICE WORKER + BANNER AGGIORNAMENTO ---
+let waitingWorker = null;
+
+function showUpdateBanner(worker) {
+  waitingWorker = worker;
+  dom.updateBanner.classList.add('show');
+}
+
+function applyUpdate() {
+  if (!waitingWorker) return;
+  dom.btnUpdate.disabled = true;
+  waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+}
+
 if ('serviceWorker' in navigator) {
+  // Quando il nuovo SW prende il controllo ricarichiamo (una sola volta).
+  // La partita è salvata in localStorage, quindi non si perde nulla.
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloading) return;
+    reloading = true;
+    window.location.reload();
+  });
+
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then((reg) => {
+      // Un aggiornamento era già scaricato e in attesa (es. app riaperta)
+      if (reg.waiting && navigator.serviceWorker.controller) showUpdateBanner(reg.waiting);
+
+      reg.addEventListener('updatefound', () => {
+        const worker = reg.installing;
+        if (!worker) return;
+        worker.addEventListener('statechange', () => {
+          // "installed" con un controller attivo = nuova versione, non primo avvio
+          if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateBanner(worker);
+          }
+        });
+      });
+
+      // Controlla aggiornamenti quando l'app torna in primo piano
+      // (le PWA installate restano aperte a lungo senza ricaricare la pagina)
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') reg.update().catch(() => {});
+      });
+    }).catch(() => {});
   });
 }
 

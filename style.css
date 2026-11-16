@@ -275,13 +275,47 @@ footer {
   transform: translateX(-50%) translateY(0);
 }
 
+/* Banner nuova versione disponibile */
+#update-banner {
+  display: none;
+  background: var(--gold);
+  color: #0b132b;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#update-banner.show {
+  display: flex;
+}
+
+#btn-update {
+  background: #0b132b;
+  color: var(--gold);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#btn-update:disabled {
+  opacity: 0.6;
+}
+
 /* Orizzontale: schermo basso, compattiamo barre e card perché tutto stia in vista */
 @media (orientation: landscape) and (max-height: 500px) {
   header {
     padding: 6px 16px;
   }
 
-  #band-banner {
+  #band-banner,
+  #update-banner {
     padding: 6px 16px;
   }
 
