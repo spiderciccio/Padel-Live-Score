@@ -178,12 +178,22 @@ main {
   font-size: 1rem;
 }
 
+/* Area che occupa tutto lo spazio libero della card: il numero si adatta ad essa */
+.points-box {
+  flex: 1;
+  min-height: 0;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .points-display {
-  font-size: clamp(4.5rem, 18vw, 7.5rem);
+  /* Il più grande possibile: limitato dall'altezza o dalla larghezza (2 caratteri, es. "AD") */
+  font-size: min(100cqh, 62cqw);
   font-weight: 900;
   text-align: center;
   line-height: 1;
-  margin: auto 0;
   font-variant-numeric: tabular-nums;
 }
 
@@ -337,10 +347,6 @@ footer {
   .team-card {
     padding: 10px 14px;
     border-radius: 16px;
-  }
-
-  .points-display {
-    font-size: clamp(3rem, 28vh, 7.5rem);
   }
 
   .games-box {
