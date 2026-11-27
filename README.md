@@ -95,9 +95,17 @@ L'app risponde dalla cache e si aggiorna in background, quindi dopo una modifica
 | `manifest.webmanifest` | Manifest della PWA |
 | `icons/` | Icone dell'app |
 
+## Supporta il progetto
+
+Se l'app ti è utile, puoi supportarne lo sviluppo con una donazione su [GitHub Sponsors](https://github.com/sponsors/spiderciccio). ♥
+
 ## Licenza
 
-Distribuito con licenza [MIT](LICENSE).
+Copyright (c) 2026 Francesco Cristaldi.
+
+Distribuito con licenza [GNU AGPL v3](LICENSE). Chi modifica l'app e la distribuisce, o la rende disponibile online, deve pubblicare il codice sorgente con la stessa licenza.
+
+Per usarla senza questi obblighi, ad esempio in un prodotto commerciale a codice chiuso, è disponibile una licenza commerciale: scrivi a [spiderciccio@msn.com](mailto:spiderciccio@msn.com).
 
 ---
 
@@ -198,6 +206,14 @@ The app serves files from the cache and updates in the background, so after a ch
 | `manifest.webmanifest` | PWA manifest |
 | `icons/` | App icons |
 
+## Support the project
+
+If you find the app useful, you can support its development with a donation on [GitHub Sponsors](https://github.com/sponsors/spiderciccio). ♥
+
 ## License
 
-Released under the [MIT](LICENSE) license.
+Copyright (c) 2026 Francesco Cristaldi.
+
+Released under the [GNU AGPL v3](LICENSE) license. If you modify the app and distribute it, or make it available over a network, you must publish your source code under the same license.
+
+A commercial license is available for use without these obligations (for example in a closed-source commercial product): write to [spiderciccio@msn.com](mailto:spiderciccio@msn.com).
