@@ -97,7 +97,7 @@ L'app risponde dalla cache e si aggiorna in background, quindi dopo una modifica
 
 ## Supporta il progetto
 
-Se l'app ti è utile, puoi supportarne lo sviluppo con una donazione su [GitHub Sponsors](https://github.com/sponsors/spiderciccio). ♥
+Se l'app ti è utile, [regalami un caffè](https://github.com/sponsors/spiderciccio) ☕ su GitHub Sponsors.
 
 ## Licenza
 
@@ -208,7 +208,7 @@ The app serves files from the cache and updates in the background, so after a ch
 
 ## Support the project
 
-If you find the app useful, you can support its development with a donation on [GitHub Sponsors](https://github.com/sponsors/spiderciccio). ♥
+If you find the app useful, [buy me a coffee](https://github.com/sponsors/spiderciccio) ☕ on GitHub Sponsors.
 
 ## License
 
